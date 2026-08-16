@@ -1,0 +1,15 @@
+[settings]
+lockfile = true
+pin = true
+minimum_release_age = "7d"
+
+[settings.pipx]
+uvx = true
+
+[tools]
+lefthook = { version = "2.1.10", postinstall = "lefthook install" }
+"pipx:basedpyright" = "1.39.9"
+ruff = "0.16.2"
+shellcheck = "0.11.0"
+shfmt = "3.13.1"
+uv = "0.12.3"

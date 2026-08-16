@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    shell:
+      glob: "*.sh"
+      run: mise run sh:check {staged_files}
+    python:
+      glob: "*.py"
+      run: mise run py:check {staged_files}
