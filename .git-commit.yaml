@@ -1,0 +1,9 @@
+hook:
+  enabled: true
+
+scopes:
+  required: false
+  allow_custom: true
+  values:
+    - name: skills
+      description: Skill definitions under skills/
