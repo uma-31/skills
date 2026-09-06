@@ -1,0 +1,89 @@
+# Commit convention, based on Conventional Commits v1.0.0.
+# https://www.conventionalcommits.org/en/v1.0.0/
+
+hook:
+  # When true, registers a commit-msg hook that enforces the commit format
+  # configured in this file.
+  enabled: false
+
+# Language of the subject and body. Any string is accepted:
+# "en", "ja", "English, imperative mood".
+language: en
+
+header:
+  # Maximum width of the first line, in display columns. The type and scope
+  # count toward it: "feat(core): add widget" is 22. Wide characters count
+  # as two columns.
+  max_length: 50
+
+subject:
+  # Whether the subject must end with a period.
+  end_with_period: false
+  # lower    -> rejects a capitalized first word, e.g. "Add"
+  # sentence -> rejects an all-lowercase first word, e.g. "add"
+  # any      -> no constraint
+  # Words mixing cases, e.g. "README.md" or "GitHub", always pass.
+  case: lower
+
+body:
+  # Reject commits that have no body.
+  required: false
+
+# Allowed commit types. Entries are plain strings or name/description pairs.
+types:
+  - name: feat
+    description: A new feature
+  - name: fix
+    description: A bug fix
+  - name: build
+    description: Changes to the build system or external dependencies
+  - name: chore
+    description: Changes that do not affect source or test files
+  - name: ci
+    description: Changes to CI configuration files and scripts
+  - name: docs
+    description: Documentation-only changes
+  - name: perf
+    description: A code change that improves performance
+  - name: refactor
+    description: A code change that neither fixes a bug nor adds a feature
+  - name: revert
+    description: Reverts a previous commit
+  - name: style
+    description: Changes that do not affect the meaning of the code
+  - name: test
+    description: Adding or correcting tests
+
+scopes:
+  # Reject commits with no scope.
+  required: false
+  # Allow scopes outside `values`.
+  allow_custom: true
+  # Scopes for this repository.
+  values: []
+  # values:
+  #   - name: api
+  #     description: HTTP handlers and request/response types
+  #   - name: db
+  #     description: Schema, migrations and queries
+
+breaking:
+  # bang   -> feat(api)!: drop v1 endpoints
+  # footer -> a "BREAKING CHANGE: <description>" footer
+  # both   -> require the "!" and the footer together
+  style: both
+
+footers:
+  # Footer tokens every commit must carry.
+  required: []
+  # Footer tokens required only when composed via the skill. Not enforced by
+  # the commit-msg hook.
+  required_for_coding_agent:
+    - Co-Authored-By
+
+# Commits whose header (first line) matches any of these regular
+# expressions skip validation. The defaults cover headers git writes itself.
+ignored_headers:
+  - '^(fixup|squash|amend)! '
+  - '^Merge '
+  - '^(Revert|Reapply) "'
